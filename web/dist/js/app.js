@@ -19680,19 +19680,36 @@
 	var LoginForm = _react2["default"].createClass({
 	  displayName: "LoginForm",
 
+	  getInitialState: function getInitialState() {
+	    return {
+	      email: '',
+	      password: ''
+	    };
+	  },
+
+	  handleForm: function handleForm(e) {
+	    e.preventDefault();
+	    console.log('Click');
+	  },
+
 	  render: function render() {
 	    return _react2["default"].createElement(
-	      "div",
-	      { className: "login-container" },
+	      "form",
+	      { onSubmit: this.handleForm, className: "login-container" },
+	      _react2["default"].createElement(
+	        "h1",
+	        { className: "login-title" },
+	        "Iniciar sesion"
+	      ),
 	      _react2["default"].createElement(
 	        "div",
 	        { className: "login-container-username" },
 	        _react2["default"].createElement(
 	          "label",
 	          null,
-	          "Nombre de usuario"
+	          "Email"
 	        ),
-	        _react2["default"].createElement("input", { type: "text" })
+	        _react2["default"].createElement("input", { ref: "email", type: "email" })
 	      ),
 	      _react2["default"].createElement(
 	        "div",
@@ -19702,7 +19719,12 @@
 	          null,
 	          "Contraseña"
 	        ),
-	        _react2["default"].createElement("input", { type: "password" })
+	        _react2["default"].createElement("input", { ref: "password", type: "password" })
+	      ),
+	      _react2["default"].createElement(
+	        "button",
+	        { type: "submit" },
+	        "Entrar"
 	      )
 	    );
 	  }
