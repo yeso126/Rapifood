@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/entryPoint.jsx',
+  entry: './src/js/entryPoint.jsx',
   output: {
     filename: 'dist/js/app.js'
   },

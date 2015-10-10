@@ -1,22 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import belle from "belle";
-
-
-let TextInput = belle.TextInput;
 
 let LoginForm = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <div>
+      <div className="login-container">
+        <div className="Login-container-username">
           <label>Nombre de usuario</label>
-          <TextInput/>
+          <input type="text"/>
         </div>
-        <div>
+        <div className="Login-container-password">
           <label>Contraseña</label>
-          <TextInput />
+          <input type="password" />
         </div>
       </div>
     );
