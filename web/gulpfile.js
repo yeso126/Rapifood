@@ -3,29 +3,25 @@ var plumber =     require('gulp-plumber');
 var browserSync = require('browser-sync');
 var uglify =      require('gulp-uglify');
 var notify =      require('gulp-notify');
+var sass =        require('gulp-sass');
 
 
 //Preprocessors
 
-gulp.task('stylus', function() {
-  'use strict';
-  gulp.src(['./src/sass/estilos.styl'])
-  	.pipe(plumber())
-    .pipe(stylus({
-      'use': [nib()],
-      'include css': true,
-      'compress': true
-    }))
-    .pipe(notify({ message: 'Stylus task complete' }))
-    .pipe(gulp.dest('./public/css/'));
-});
 
+gulp.task('sass', function () {
+  gulp.src('./src/sass/estilos.sass')
+    .pipe(plumber())
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(notify({ message: 'Sass task complete' }))
+    .pipe(gulp.dest('./css'));
+});
 
 gulp.task('browser-sync', function() {
       'use strict';
     browserSync.init({
         server: {
-            baseDir: './public',
+            baseDir: './dist',
             index: 'index.html'
         }
     });
@@ -38,10 +34,10 @@ gulp.task('browser-sync', function() {
 
 gulp.task('watch', function(){
   'use strict';
-  gulp.watch(['./src/stylus/**/*.styl'],['stylus']);
+  gulp.watch('./src/sass/estilos.sass', ['sass']);
 });
 
 
 //ToDo
 
-gulp.task('default',['watch', 'stylus','browser-sync']);
+gulp.task('default',['watch', 'sass','browser-sync']);
