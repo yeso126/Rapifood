@@ -19686,7 +19686,7 @@
 	      { className: "login-container" },
 	      _react2["default"].createElement(
 	        "div",
-	        { className: "Login-container-username" },
+	        { className: "login-container-username" },
 	        _react2["default"].createElement(
 	          "label",
 	          null,
@@ -19696,7 +19696,7 @@
 	      ),
 	      _react2["default"].createElement(
 	        "div",
-	        { className: "Login-container-password" },
+	        { className: "login-container-password" },
 	        _react2["default"].createElement(
 	          "label",
 	          null,

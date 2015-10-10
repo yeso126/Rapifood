@@ -14,7 +14,7 @@ gulp.task('sass', function () {
     .pipe(plumber())
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(notify({ message: 'Sass task complete' }))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('browser-sync', function() {
@@ -34,7 +34,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('watch', function(){
   'use strict';
-  gulp.watch('./src/sass/estilos.sass', ['sass']);
+  gulp.watch(['./src/sass/estilos.sass', './src/sass/*/**'], ['sass']);
 });
 
 

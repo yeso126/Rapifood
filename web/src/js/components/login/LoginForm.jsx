@@ -6,11 +6,11 @@ let LoginForm = React.createClass({
   render: function() {
     return (
       <div className="login-container">
-        <div className="Login-container-username">
+        <div className="login-container-username">
           <label>Nombre de usuario</label>
           <input type="text"/>
         </div>
-        <div className="Login-container-password">
+        <div className="login-container-password">
           <label>Contraseña</label>
           <input type="password" />
         </div>
