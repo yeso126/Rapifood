@@ -2,30 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Firebase from "firebase";
 
-var ref = new Firebase("https://rapifood.firebaseio.com/");
-
+const ref = new Firebase("https://rapifood.firebaseio.com/");
 let LoginForm = React.createClass({
-getInitialState: function(){
 
-  return {
-    email: '',
-    password: ''
-  };
-},
 
 handleForm: function (e){
   e.preventDefault();
+  let login = {
+    email: this.refs.email.value,
+    password: this.refs.password.value
+  };
   ref.authWithPassword({
-  email    : 'demo@demo.com',
-  password : 'demo'
-}, authHandler);
-function authHandler(error, authData) {
-  if (error) {
-    console.log("Login Failed!", error);
-  } else {
-    console.log("Authenticated successfully with payload:", authData);
-  }
-}
+    email    : login.email,
+    password : login.password
+  }, authHandler);
+    function authHandler(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+        alert("Correo o contraseña errado");
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        alert("Ha iniciado sesion correctamente");
+      }
+  };
 },
 
   render: function() {

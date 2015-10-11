@@ -19682,31 +19682,28 @@
 	var _firebase2 = _interopRequireDefault(_firebase);
 
 	var ref = new _firebase2["default"]("https://rapifood.firebaseio.com/");
-
 	var LoginForm = _react2["default"].createClass({
 	  displayName: "LoginForm",
 
-	  getInitialState: function getInitialState() {
-
-	    return {
-	      email: '',
-	      password: ''
-	    };
-	  },
-
 	  handleForm: function handleForm(e) {
 	    e.preventDefault();
+	    var login = {
+	      email: this.refs.email.value,
+	      password: this.refs.password.value
+	    };
 	    ref.authWithPassword({
-	      email: 'demo@demo.com',
-	      password: 'demo'
+	      email: login.email,
+	      password: login.password
 	    }, authHandler);
 	    function authHandler(error, authData) {
 	      if (error) {
 	        console.log("Login Failed!", error);
+	        alert("Correo o contraseña errado");
 	      } else {
 	        console.log("Authenticated successfully with payload:", authData);
+	        alert("Ha iniciado sesion correctamente");
 	      }
-	    }
+	    };
 	  },
 
 	  render: function render() {
