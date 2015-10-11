@@ -6,8 +6,8 @@ let InputForm = React.createClass({
 
   render: function() {
     return (
-      <header>
-        
+      <header class="">
+
       </header>
     );
   }
