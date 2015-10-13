@@ -56,22 +56,24 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _reactRouter = __webpack_require__(158);
+
+	// Views
+
+	var _viewsLoginJsx = __webpack_require__(209);
+
+	var _viewsLoginJsx2 = _interopRequireDefault(_viewsLoginJsx);
+
 	var _viewsHomeJsx = __webpack_require__(204);
 
 	var _viewsHomeJsx2 = _interopRequireDefault(_viewsHomeJsx);
 
-	var _reactRouter = __webpack_require__(158);
-
-	var App = _react2["default"].createClass({
-	  displayName: "App",
-
-	  render: function render() {
-	    return _react2["default"].createElement(_viewsHomeJsx2["default"], null);
-	  }
-
-	});
-
-	_reactDom2["default"].render(_react2["default"].createElement(App, null), document.getElementById('appContainer'));
+	_reactDom2["default"].render(_react2["default"].createElement(
+	  _reactRouter.Router,
+	  null,
+	  _react2["default"].createElement(_reactRouter.Route, { path: "/", component: _viewsHomeJsx2["default"] }),
+	  _react2["default"].createElement(_reactRouter.Route, { path: "login", component: _viewsLoginJsx2["default"] })
+	), document.getElementById('appContainer'));
 
 /***/ },
 /* 1 */
@@ -14585,7 +14587,7 @@
 	 *
 	 * @providesModule shallowEqual
 	 * @typechecks
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -21038,7 +21040,7 @@
 	 * nested.
 	 *
 	 *   import { Route, createRoutesFromReactChildren } from 'react-router'
-	 *   
+	 *
 	 *   const routes = createRoutesFromReactChildren(
 	 *     <Route component={App}>
 	 *       <Route path="home" component={Dashboard}/>
@@ -22422,7 +22424,7 @@
 	 * the change from prevState to nextState. We leave routes if either
 	 * 1) they are not in the next state or 2) they are in the next state
 	 * but their params have changed (i.e. /users/123 => /users/456) or
-	 * 3) they are in the next state but the query has changed 
+	 * 3) they are in the next state but the query has changed
 	 * (i.e. /search?query=foo => /search?query=bar)
 	 *
 	 * leaveRoutes are ordered starting at the leaf route of the tree
@@ -23981,10 +23983,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(157);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
 	var _componentsNavigationAppBarJsx = __webpack_require__(205);
 
 	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
@@ -24005,8 +24003,7 @@
 	      "div",
 	      null,
 	      _react2["default"].createElement(_componentsNavigationAppBarJsx2["default"], null),
-	      _react2["default"].createElement(_componentsNavigationHeroJsx2["default"], null),
-	      _react2["default"].createElement(_componentsLoginLoginFormJsx2["default"], null)
+	      _react2["default"].createElement(_componentsNavigationHeroJsx2["default"], null)
 	    );
 	  }
 	});
@@ -24030,9 +24027,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(157);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
+	var _reactRouter = __webpack_require__(158);
 
 	var AppBar = _react2["default"].createClass({
 	  displayName: "AppBar",
@@ -24051,6 +24046,19 @@
 	        "h2",
 	        { className: "header-subtitle" },
 	        "Decide y pide rapido lo que quieras"
+	      ),
+	      _react2["default"].createElement(
+	        "ul",
+	        null,
+	        _react2["default"].createElement(
+	          "li",
+	          null,
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            { to: "/login" },
+	            "Iniciar sesion"
+	          )
+	        )
 	      )
 	    );
 	  }
@@ -24074,10 +24082,6 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(157);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var Hero = _react2["default"].createClass({
 	  displayName: "Hero",
@@ -24105,10 +24109,6 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(157);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _firebase = __webpack_require__(208);
 
@@ -24455,6 +24455,50 @@
 
 	module.exports = Firebase;
 
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _componentsNavigationAppBarJsx = __webpack_require__(205);
+
+	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
+
+	var _componentsNavigationHeroJsx = __webpack_require__(206);
+
+	var _componentsNavigationHeroJsx2 = _interopRequireDefault(_componentsNavigationHeroJsx);
+
+	var _componentsLoginLoginFormJsx = __webpack_require__(207);
+
+	var _componentsLoginLoginFormJsx2 = _interopRequireDefault(_componentsLoginLoginFormJsx);
+
+	var Login = _react2["default"].createClass({
+	  displayName: "Login",
+
+	  render: function render() {
+	    return _react2["default"].createElement(
+	      "div",
+	      null,
+	      _react2["default"].createElement(_componentsNavigationAppBarJsx2["default"], null),
+	      _react2["default"].createElement(_componentsLoginLoginFormJsx2["default"], null)
+	    );
+	  }
+	});
+
+	exports["default"] = Login;
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Firebase from "firebase";
 
 const ref = new Firebase("https://rapifood.firebaseio.com/");
