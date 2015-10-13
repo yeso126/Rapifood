@@ -2,15 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 
-let InputForm = React.createClass({
+let AppBar = React.createClass({
 
   render: function() {
     return (
-      <header class="">
-
+      <header className="header">
+        <img className="header-img" src="" alt="Rapifood-logo"/>
+        <h1 className="header-title">Rapifood</h1>
+        <h2 className="header-subtitle">Decide y pide rapido lo que quieras</h2>
       </header>
     );
   }
 });
 
-export default InputForm;
+export default AppBar;

@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import Firebase from "firebase";
 
 const ref = new Firebase("https://rapifood.firebaseio.com/");
+
 let LoginForm = React.createClass({
 
 
-handleForm: function (e){
+loginSubmit: function (e){
   e.preventDefault();
   let login = {
     email: this.refs.email.value,
@@ -29,7 +30,7 @@ handleForm: function (e){
 
   render: function() {
     return (
-      <form onSubmit={this.handleForm} className="login-container">
+      <form onSubmit={this.loginSubmit} className="login-container">
         <h1 className="login-title">Iniciar sesion</h1>
         <div className="login-container-username">
           <label>Email</label>
