@@ -12,7 +12,7 @@ var {
   View,
 } = React;
 
-var mobile = React.createClass({
+var Rapifood = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
@@ -49,4 +49,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('mobile', () => mobile);
+AppRegistry.registerComponent('Rapifood', () => Rapifood);

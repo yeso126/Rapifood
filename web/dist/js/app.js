@@ -44,6 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// Dependencies imports
 	"use strict";
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -58,44 +59,25 @@
 
 	var _reactRouter = __webpack_require__(158);
 
-	var _historyLibCreateBrowserHistory = __webpack_require__(204);
+	var _history = __webpack_require__(226);
 
-	var _historyLibCreateBrowserHistory2 = _interopRequireDefault(_historyLibCreateBrowserHistory);
+	var _history2 = _interopRequireDefault(_history);
 
-	// Views
+	// Routes imports
 
 	var _routesLoginJsx = __webpack_require__(221);
 
 	var _routesLoginJsx2 = _interopRequireDefault(_routesLoginJsx);
 
-	var _routesHomeJsx = __webpack_require__(226);
+	var _routesHomeJsx = __webpack_require__(225);
 
 	var _routesHomeJsx2 = _interopRequireDefault(_routesHomeJsx);
 
-	var _componentsNavigationAppBarJsx = __webpack_require__(222);
-
-	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
-
-	var history = (0, _historyLibCreateBrowserHistory2["default"])();
-
-	var App = _react2["default"].createClass({
-	  displayName: "App",
-
-	  render: function render() {
-	    return _react2["default"].createElement(
-	      "div",
-	      null,
-	      _react2["default"].createElement(_componentsNavigationAppBarJsx2["default"], null),
-	      this.props.children
-	    );
-	  }
-	});
-
 	_reactDom2["default"].render(_react2["default"].createElement(
 	  _reactRouter.Router,
-	  { history: history },
+	  { history: _history2["default"] },
 	  _react2["default"].createElement(_reactRouter.Route, { path: "/", component: _routesHomeJsx2["default"] }),
-	  _react2["default"].createElement(_reactRouter.Route, { path: "login", component: _routesLoginJsx2["default"] })
+	  _react2["default"].createElement(_reactRouter.Route, { path: "/login", component: _routesLoginJsx2["default"] })
 	), document.getElementById('appContainer'));
 
 /***/ },
@@ -25105,11 +25087,7 @@
 
 	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
 
-	var _componentsNavigationHeroJsx = __webpack_require__(223);
-
-	var _componentsNavigationHeroJsx2 = _interopRequireDefault(_componentsNavigationHeroJsx);
-
-	var _componentsLoginLoginFormJsx = __webpack_require__(224);
+	var _componentsLoginLoginFormJsx = __webpack_require__(223);
 
 	var _componentsLoginLoginFormJsx2 = _interopRequireDefault(_componentsLoginLoginFormJsx);
 
@@ -25200,34 +25178,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var Hero = _react2["default"].createClass({
-	  displayName: "Hero",
-
-	  render: function render() {
-	    return _react2["default"].createElement("article", { className: "hero" });
-	  }
-	});
-
-	exports["default"] = Hero;
-	module.exports = exports["default"];
-
-/***/ },
-/* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _firebase = __webpack_require__(225);
+	var _firebase = __webpack_require__(224);
 
 	var _firebase2 = _interopRequireDefault(_firebase);
 
@@ -25299,7 +25250,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 225 */
+/* 224 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.3.1
@@ -25574,7 +25525,7 @@
 
 
 /***/ },
-/* 226 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25589,27 +25540,80 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _firebase = __webpack_require__(224);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
 	var _componentsNavigationAppBarJsx = __webpack_require__(222);
 
 	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
 
-	var _componentsNavigationHeroJsx = __webpack_require__(223);
-
-	var _componentsNavigationHeroJsx2 = _interopRequireDefault(_componentsNavigationHeroJsx);
-
-	var _componentsLoginLoginFormJsx = __webpack_require__(224);
+	var _componentsLoginLoginFormJsx = __webpack_require__(223);
 
 	var _componentsLoginLoginFormJsx2 = _interopRequireDefault(_componentsLoginLoginFormJsx);
 
+	var _history = __webpack_require__(226);
+
+	var _history2 = _interopRequireDefault(_history);
+
+	var ref = new _firebase2["default"]("https://rapifood.firebaseio.com/");
+
 	var Home = _react2["default"].createClass({
 	  displayName: "Home",
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      login: false
+	    };
+	  },
+
+	  loginFbSubmit: function loginFbSubmit(e) {
+	    e.preventDefault();
+	    ref.authWithOAuthPopup("facebook", function (error, authData) {
+	      if (error) {
+	        console.log("Login Failed!", error);
+	      } else {
+	        console.log("Authenticated successfully with payload:", authData);
+	        _history2["default"].replaceState(null, '/login');
+	      }
+	    });
+	  },
+
+	  loginTwSubmit: function loginTwSubmit(e) {
+	    e.preventDefault();
+	    ref.authWithOAuthPopup("twitter", function (error, authData) {
+	      if (error) {
+	        console.log("Login Failed!", error);
+	      } else {
+	        console.log("Authenticated successfully with payload:", authData);
+	        _history2["default"].replaceState(null, '/login');
+	      }
+	    });
+	  },
 
 	  render: function render() {
 	    return _react2["default"].createElement(
 	      "div",
 	      null,
 	      _react2["default"].createElement(_componentsNavigationAppBarJsx2["default"], null),
-	      _react2["default"].createElement(_componentsNavigationHeroJsx2["default"], null),
+	      _react2["default"].createElement(
+	        "article",
+	        { className: "hero" },
+	        _react2["default"].createElement(
+	          "form",
+	          null,
+	          _react2["default"].createElement(
+	            "button",
+	            { onClick: this.loginFbSubmit, className: "login", type: "submit" },
+	            "Facebook Login"
+	          ),
+	          _react2["default"].createElement(
+	            "button",
+	            { onClick: this.loginTwSubmit, className: "login", type: "submit" },
+	            "Twitter Login"
+	          )
+	        )
+	      ),
 	      _react2["default"].createElement(
 	        "section",
 	        { className: "section1" },
@@ -25648,6 +25652,25 @@
 
 	exports["default"] = Home;
 	module.exports = exports["default"];
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _historyLibCreateBrowserHistory = __webpack_require__(204);
+
+	var _historyLibCreateBrowserHistory2 = _interopRequireDefault(_historyLibCreateBrowserHistory);
+
+	exports['default'] = (0, _historyLibCreateBrowserHistory2['default'])();
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
