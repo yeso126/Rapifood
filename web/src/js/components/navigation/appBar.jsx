@@ -9,9 +9,6 @@ let AppBar = React.createClass({
         <img className="header-img" src="" alt="Rapifood-logo"/>
         <h1 className="header-title">Rapifood</h1>
         <h2 className="header-subtitle">Decide y pide rapido lo que quieras</h2>
-        <ul>
-          <li><Link to="/login">Iniciar sesion</Link></li>
-        </ul>
       </header>
     );
   }

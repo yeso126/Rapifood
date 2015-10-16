@@ -8,24 +8,19 @@ const ref = new Firebase("https://rapifood.firebaseio.com/");
 
 let Home = React.createClass({
 
-getInitialState: function() {
-  return {
-      login: false
-  };
-},
-
-
-
   loginFbSubmit: function (e){
     e.preventDefault();
-    ref.authWithOAuthPopup("facebook", function(error, authData) {
-    if (error) {
-      console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-        history.replaceState(null, '/login');
-      }
-    });
+
+      ref.authWithOAuthPopup("facebook", function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+          let jsonLogin = JSON.stringify(authData);
+          sessionStorage.setItem('user', jsonLogin);
+          history.pushState(null , '/pedir');
+        }
+      });
   },
 
   loginTwSubmit: function(e){
@@ -35,7 +30,9 @@ getInitialState: function() {
         console.log("Login Failed!", error);
       } else {
         console.log("Authenticated successfully with payload:", authData);
-        history.replaceState(null, '/login');
+        let jsonLogin = JSON.stringify(authData);
+        sessionStorage.setItem('user', jsonLogin);
+        history.pushState(null, '/pedir');
       }
     });
   },
