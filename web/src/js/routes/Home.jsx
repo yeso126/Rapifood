@@ -1,7 +1,7 @@
 import React from "react";
 import Firebase from "firebase";
-import AppBar from "../components/navigation/AppBar.jsx";
-import LoginForm from "../components/login/LoginForm.jsx";
+import AppBar from "../components/AppBar.jsx";
+import LoginForm from "../components/LoginForm.jsx";
 import history from '../history';
 
 const ref = new Firebase("https://rapifood.firebaseio.com/");
@@ -13,9 +13,9 @@ let Home = React.createClass({
 
       ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
-        console.log("Login Failed!", error);
+        console.log("Login Fallido!", error);
         } else {
-          console.log("Authenticated successfully with payload:", authData);
+          console.log("Autenticado exitosamente:", authData);
           let jsonLogin = JSON.stringify(authData);
           sessionStorage.setItem('user', jsonLogin);
           history.pushState(null , '/pedir');
@@ -27,9 +27,9 @@ let Home = React.createClass({
     e.preventDefault();
     ref.authWithOAuthPopup("twitter", function(error, authData) {
       if (error) {
-        console.log("Login Failed!", error);
+        console.log("Login Fallido!", error);
       } else {
-        console.log("Authenticated successfully with payload:", authData);
+        console.log("Autenticado exitosamente:", authData);
         let jsonLogin = JSON.stringify(authData);
         sessionStorage.setItem('user', jsonLogin);
         history.pushState(null, '/pedir');

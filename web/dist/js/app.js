@@ -65,10 +65,6 @@
 
 	// Routes imports
 
-	var _routesLoginJsx = __webpack_require__(222);
-
-	var _routesLoginJsx2 = _interopRequireDefault(_routesLoginJsx);
-
 	var _routesHomeJsx = __webpack_require__(226);
 
 	var _routesHomeJsx2 = _interopRequireDefault(_routesHomeJsx);
@@ -81,7 +77,6 @@
 	  _reactRouter.Router,
 	  { history: _history2["default"] },
 	  _react2["default"].createElement(_reactRouter.Route, { path: "/", component: _routesHomeJsx2["default"] }),
-	  _react2["default"].createElement(_reactRouter.Route, { path: "/login", component: _routesLoginJsx2["default"] }),
 	  _react2["default"].createElement(_reactRouter.Route, { path: "/pedir", component: _routesPedirJsx2["default"] })
 	), document.getElementById('appContainer'));
 
@@ -25092,175 +25087,9 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 222 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _componentsNavigationAppBarJsx = __webpack_require__(223);
-
-	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
-
-	var _componentsLoginLoginFormJsx = __webpack_require__(224);
-
-	var _componentsLoginLoginFormJsx2 = _interopRequireDefault(_componentsLoginLoginFormJsx);
-
-	var Login = _react2["default"].createClass({
-	  displayName: "Login",
-
-	  render: function render() {
-	    return _react2["default"].createElement(
-	      "div",
-	      null,
-	      _react2["default"].createElement(_componentsLoginLoginFormJsx2["default"], null)
-	    );
-	  }
-	});
-
-	exports["default"] = Login;
-	module.exports = exports["default"];
-
-/***/ },
-/* 223 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(158);
-
-	var AppBar = _react2["default"].createClass({
-	  displayName: "AppBar",
-
-	  render: function render() {
-	    return _react2["default"].createElement(
-	      "header",
-	      { className: "header" },
-	      _react2["default"].createElement("img", { className: "header-img", src: "", alt: "Rapifood-logo" }),
-	      _react2["default"].createElement(
-	        "h1",
-	        { className: "header-title" },
-	        "Rapifood"
-	      ),
-	      _react2["default"].createElement(
-	        "h2",
-	        { className: "header-subtitle" },
-	        "Decide y pide rapido lo que quieras"
-	      )
-	    );
-	  }
-	});
-
-	exports["default"] = AppBar;
-	module.exports = exports["default"];
-
-/***/ },
-/* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _firebase = __webpack_require__(225);
-
-	var _firebase2 = _interopRequireDefault(_firebase);
-
-	var ref = new _firebase2["default"]("https://rapifood.firebaseio.com/");
-
-	var LoginForm = _react2["default"].createClass({
-	  displayName: "LoginForm",
-
-	  loginSubmit: function loginSubmit(e) {
-	    e.preventDefault();
-	    var login = {
-	      email: this.refs.email.value,
-	      password: this.refs.password.value
-	    };
-	    ref.authWithPassword({
-	      email: login.email,
-	      password: login.password
-	    }, authHandler);
-	    function authHandler(error, authData) {
-	      if (error) {
-	        console.log("Login Failed!", error);
-	        alert("Correo o contraseña errado");
-	      } else {
-	        console.log("Authenticated successfully with payload:", authData);
-	        alert("Ha iniciado sesion correctamente");
-	      }
-	    };
-	  },
-
-	  render: function render() {
-	    return _react2["default"].createElement(
-	      "form",
-	      { onSubmit: this.loginSubmit, className: "login-container" },
-	      _react2["default"].createElement(
-	        "h1",
-	        { className: "login-title" },
-	        "Iniciar sesion"
-	      ),
-	      _react2["default"].createElement(
-	        "div",
-	        { className: "login-container-username" },
-	        _react2["default"].createElement(
-	          "label",
-	          null,
-	          "Email"
-	        ),
-	        _react2["default"].createElement("input", { ref: "email", type: "email" })
-	      ),
-	      _react2["default"].createElement(
-	        "div",
-	        { className: "login-container-password" },
-	        _react2["default"].createElement(
-	          "label",
-	          null,
-	          "Contraseña"
-	        ),
-	        _react2["default"].createElement("input", { ref: "password", type: "password" })
-	      ),
-	      _react2["default"].createElement(
-	        "button",
-	        { type: "submit" },
-	        "Entrar"
-	      )
-	    );
-	  }
-	});
-
-	exports["default"] = LoginForm;
-	module.exports = exports["default"];
-
-/***/ },
+/* 222 */,
+/* 223 */,
+/* 224 */,
 /* 225 */
 /***/ function(module, exports) {
 
@@ -25555,13 +25384,13 @@
 
 	var _firebase2 = _interopRequireDefault(_firebase);
 
-	var _componentsNavigationAppBarJsx = __webpack_require__(223);
+	var _componentsAppBarJsx = __webpack_require__(229);
 
-	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
+	var _componentsAppBarJsx2 = _interopRequireDefault(_componentsAppBarJsx);
 
-	var _componentsLoginLoginFormJsx = __webpack_require__(224);
+	var _componentsLoginFormJsx = __webpack_require__(230);
 
-	var _componentsLoginLoginFormJsx2 = _interopRequireDefault(_componentsLoginLoginFormJsx);
+	var _componentsLoginFormJsx2 = _interopRequireDefault(_componentsLoginFormJsx);
 
 	var _history = __webpack_require__(204);
 
@@ -25577,9 +25406,9 @@
 
 	    ref.authWithOAuthPopup("facebook", function (error, authData) {
 	      if (error) {
-	        console.log("Login Failed!", error);
+	        console.log("Login Fallido!", error);
 	      } else {
-	        console.log("Authenticated successfully with payload:", authData);
+	        console.log("Autenticado exitosamente:", authData);
 	        var jsonLogin = JSON.stringify(authData);
 	        sessionStorage.setItem('user', jsonLogin);
 	        _history2["default"].pushState(null, '/pedir');
@@ -25591,9 +25420,9 @@
 	    e.preventDefault();
 	    ref.authWithOAuthPopup("twitter", function (error, authData) {
 	      if (error) {
-	        console.log("Login Failed!", error);
+	        console.log("Login Fallido!", error);
 	      } else {
-	        console.log("Authenticated successfully with payload:", authData);
+	        console.log("Autenticado exitosamente:", authData);
 	        var jsonLogin = JSON.stringify(authData);
 	        sessionStorage.setItem('user', jsonLogin);
 	        _history2["default"].pushState(null, '/pedir');
@@ -25605,7 +25434,7 @@
 	    return _react2["default"].createElement(
 	      "div",
 	      null,
-	      _react2["default"].createElement(_componentsNavigationAppBarJsx2["default"], null),
+	      _react2["default"].createElement(_componentsAppBarJsx2["default"], null),
 	      _react2["default"].createElement(
 	        "article",
 	        { className: "hero" },
@@ -25679,35 +25508,231 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _componentsNavigationAppBarJsx = __webpack_require__(223);
+	var _componentsAppBarJsx = __webpack_require__(229);
 
-	var _componentsNavigationAppBarJsx2 = _interopRequireDefault(_componentsNavigationAppBarJsx);
+	var _componentsAppBarJsx2 = _interopRequireDefault(_componentsAppBarJsx);
+
+	var _componentsCategoriasJsx = __webpack_require__(228);
+
+	var _componentsCategoriasJsx2 = _interopRequireDefault(_componentsCategoriasJsx);
 
 	var Pedir = _react2["default"].createClass({
 	  displayName: "Pedir",
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      userData: sessionStorage.getItem("user")
+	      userData: ''
 	    };
+	  },
+
+	  componentWillMount: function componentWillMount() {
+	    var jsonData = sessionStorage.getItem("user");
+	    var userData = JSON.parse(jsonData);
+	    this.setState({
+	      userData: userData
+	    });
 	  },
 
 	  render: function render() {
 	    return _react2["default"].createElement(
 	      "div",
 	      null,
-	      _react2["default"].createElement(_componentsNavigationAppBarJsx2["default"], null),
+	      _react2["default"].createElement(_componentsAppBarJsx2["default"], null),
 	      _react2["default"].createElement(
-	        "h1",
+	        "header",
 	        null,
-	        "Categorias"
+	        _react2["default"].createElement(
+	          "h3",
+	          null,
+	          "Bienvenido ",
+	          this.state.userData.facebook.cachedUserProfile.first_name
+	        )
 	      ),
-	      _react2["default"].createElement("p", null)
+	      _react2["default"].createElement(
+	        "section",
+	        { className: "container" },
+	        _react2["default"].createElement(
+	          "h1",
+	          null,
+	          "Categorias"
+	        )
+	      )
 	    );
 	  }
 	});
 
 	exports["default"] = Pedir;
+	module.exports = exports["default"];
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Categorias = _react2["default"].createClass({
+	  displayName: "Categorias",
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      userData: ''
+	    };
+	  },
+
+	  componentWillMount: function componentWillMount() {
+	    this.setState({});
+	  },
+
+	  render: function render() {
+	    return _react2["default"].createElement(
+	      "div",
+	      null,
+	      _react2["default"].createElement("section", { className: "container" })
+	    );
+	  }
+	});
+
+	exports["default"] = Categorias;
+	module.exports = exports["default"];
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(158);
+
+	var AppBar = _react2["default"].createClass({
+	  displayName: "AppBar",
+
+	  render: function render() {
+	    return _react2["default"].createElement(
+	      "header",
+	      { className: "header" },
+	      _react2["default"].createElement("img", { className: "header-img", src: "", alt: "Rapifood-logo" }),
+	      _react2["default"].createElement(
+	        "h1",
+	        { className: "header-title" },
+	        "Rapifood"
+	      ),
+	      _react2["default"].createElement(
+	        "h2",
+	        { className: "header-subtitle" },
+	        "Decide y pide rapido lo que quieras"
+	      )
+	    );
+	  }
+	});
+
+	exports["default"] = AppBar;
+	module.exports = exports["default"];
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(225);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var ref = new _firebase2["default"]("https://rapifood.firebaseio.com/");
+
+	var LoginForm = _react2["default"].createClass({
+	  displayName: "LoginForm",
+
+	  loginSubmit: function loginSubmit(e) {
+	    e.preventDefault();
+	    var login = {
+	      email: this.refs.email.value,
+	      password: this.refs.password.value
+	    };
+	    ref.authWithPassword({
+	      email: login.email,
+	      password: login.password
+	    }, authHandler);
+	    function authHandler(error, authData) {
+	      if (error) {
+	        console.log("Login Failed!", error);
+	        alert("Correo o contraseña errado");
+	      } else {
+	        console.log("Authenticated successfully with payload:", authData);
+	        alert("Ha iniciado sesion correctamente");
+	      }
+	    };
+	  },
+
+	  render: function render() {
+	    return _react2["default"].createElement(
+	      "form",
+	      { onSubmit: this.loginSubmit, className: "login-container" },
+	      _react2["default"].createElement(
+	        "h1",
+	        { className: "login-title" },
+	        "Iniciar sesion"
+	      ),
+	      _react2["default"].createElement(
+	        "div",
+	        { className: "login-container-username" },
+	        _react2["default"].createElement(
+	          "label",
+	          null,
+	          "Email"
+	        ),
+	        _react2["default"].createElement("input", { ref: "email", type: "email" })
+	      ),
+	      _react2["default"].createElement(
+	        "div",
+	        { className: "login-container-password" },
+	        _react2["default"].createElement(
+	          "label",
+	          null,
+	          "Contraseña"
+	        ),
+	        _react2["default"].createElement("input", { ref: "password", type: "password" })
+	      ),
+	      _react2["default"].createElement(
+	        "button",
+	        { type: "submit" },
+	        "Entrar"
+	      )
+	    );
+	  }
+	});
+
+	exports["default"] = LoginForm;
 	module.exports = exports["default"];
 
 /***/ }
