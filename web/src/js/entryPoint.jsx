@@ -13,7 +13,7 @@ ReactDOM.render((
   <Router history={history}>
     <Route path="/" component={Home} />
     <Route path="/pedir" component={Pedir}>
-
+      
     </Route>
   </Router>
   ),document.getElementById('appContainer')
