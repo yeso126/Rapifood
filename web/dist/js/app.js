@@ -25125,7 +25125,6 @@
 
 	  loginFbSubmit: function loginFbSubmit(e) {
 	    e.preventDefault();
-
 	    ref.authWithOAuthPopup("facebook", function (error, authData) {
 	      if (error) {
 	        console.log("Login Fallido!", error);
@@ -25635,6 +25634,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reBase = __webpack_require__(228);
+
+	var _reBase2 = _interopRequireDefault(_reBase);
+
 	var _history = __webpack_require__(204);
 
 	var _history2 = _interopRequireDefault(_history);
@@ -25647,13 +25650,24 @@
 
 	var _componentsCategoriasJsx2 = _interopRequireDefault(_componentsCategoriasJsx);
 
+	var base = _reBase2["default"].createClass('https://rapifood.firebaseio.com');
+
 	var Pedir = _react2["default"].createClass({
 	  displayName: "Pedir",
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      userData: ''
+	      userData: '',
+	      categorias: ''
 	    };
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    base.bindToState('categorias', {
+	      context: this,
+	      state: 'categorias'
+
+	    });
 	  },
 
 	  componentWillMount: function componentWillMount() {
@@ -25703,7 +25717,7 @@
 	          null,
 	          "Categorias"
 	        ),
-	        _react2["default"].createElement(_componentsCategoriasJsx2["default"], null)
+	        _react2["default"].createElement(_componentsCategoriasJsx2["default"], { categorias: this.state.categorias })
 	      )
 	    );
 	  }
@@ -25732,42 +25746,17 @@
 
 	var _firebase2 = _interopRequireDefault(_firebase);
 
-	var _reBase = __webpack_require__(228);
-
-	var _reBase2 = _interopRequireDefault(_reBase);
-
-	var base = _reBase2["default"].createClass('https://rapifood.firebaseio.com');
-
 	var Categorias = _react2["default"].createClass({
 	  displayName: "Categorias",
 
-	  getInitialState: function getInitialState() {
-	    return {
-	      userData: '',
-	      categorias: ''
-	    };
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    base.bindToState('categorias', {
-	      context: this,
-	      state: 'categorias'
-
-	    });
-	  },
-
 	  render: function render() {
-	    var itemsArray = this.state.categorias;
-	    console.log(itemsArray);
+	    var china = this.props.categorias.china;
+	    console.log(china);
 
 	    return _react2["default"].createElement(
-	      "div",
-	      null,
-	      _react2["default"].createElement(
-	        "section",
-	        { className: "container" },
-	        _react2["default"].createElement("ul", null)
-	      )
+	      "section",
+	      { className: "container" },
+	      _react2["default"].createElement("ul", null)
 	    );
 	  }
 	});

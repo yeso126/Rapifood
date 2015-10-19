@@ -10,17 +10,16 @@ let Home = React.createClass({
 
   loginFbSubmit: function (e){
     e.preventDefault();
-
-      ref.authWithOAuthPopup("facebook", function(error, authData) {
-      if (error) {
-        console.log("Login Fallido!", error);
-        } else {
-          console.log("Autenticado exitosamente:", authData);
-          let jsonLogin = JSON.stringify(authData);
-          sessionStorage.setItem('user', jsonLogin);
-          history.pushState(null , '/pedir');
-        }
-      });
+    ref.authWithOAuthPopup("facebook", function(error, authData) {
+    if (error) {
+      console.log("Login Fallido!", error);
+      } else {
+        console.log("Autenticado exitosamente:", authData);
+        let jsonLogin = JSON.stringify(authData);
+        sessionStorage.setItem('user', jsonLogin);
+        history.pushState(null , '/pedir');
+      }
+    });
   },
 
   loginTwSubmit: function(e){

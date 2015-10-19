@@ -1,13 +1,26 @@
 import React from "react";
+import Rebase from "re-base";
 import history from '../history';
 import AppBar from "../components/AppBar.jsx";
 import Categorias from "../components/Categorias.jsx";
 
+
+var base = Rebase.createClass('https://rapifood.firebaseio.com');
+
 let Pedir = React.createClass({
   getInitialState: function () {
     return {
-      userData: ''
+      userData: '',
+      categorias: ''
     };
+  },
+
+  componentDidMount: function(){
+    base.bindToState('categorias', {
+      context: this,
+      state: 'categorias',
+
+    });
   },
 
   componentWillMount: function() {
@@ -40,7 +53,7 @@ let Pedir = React.createClass({
         </header>
         <section className="container">
           <h1>Categorias</h1>
-          <Categorias/>
+          <Categorias categorias={this.state.categorias}/>
         </section>
       </div>
     );

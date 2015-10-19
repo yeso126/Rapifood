@@ -1,0 +1,27 @@
+{
+  "categorias" : {
+    "china" : {
+      "cc1" : "Lon Hong",
+      "cc2" : "El fenix de oro",
+      "cc3" : "Chi Lon Qua"
+    },
+    "rapida" : {
+      "cr1" : "American Dog",
+      "cr2" : "Dominos' Pizza",
+      "cr3" : "La perrada del William"
+    }
+  },
+  "restaurantes" : {
+    "american_dog" : {
+      "descripcion" : "comida rapida al estilo americano",
+      "horario_de_atencion" : "4pm - 6pm",
+      "platos" : {
+        "pizza_sencilla" : {
+          "ingredientes" : "queso y jamon",
+          "tamaño" : "15cm",
+          "valor" : 4.5
+        }
+      }
+    }
+  }
+}
