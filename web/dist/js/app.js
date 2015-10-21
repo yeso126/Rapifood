@@ -25129,7 +25129,6 @@
 	      if (error) {
 	        console.log("Login Fallido!", error);
 	      } else {
-	        console.log("Autenticado exitosamente:", authData);
 	        var jsonLogin = JSON.stringify(authData);
 	        sessionStorage.setItem('user', jsonLogin);
 	        _history2["default"].pushState(null, '/pedir');
@@ -25143,7 +25142,6 @@
 	      if (error) {
 	        console.log("Login Fallido!", error);
 	      } else {
-	        console.log("Autenticado exitosamente:", authData);
 	        var jsonLogin = JSON.stringify(authData);
 	        sessionStorage.setItem('user', jsonLogin);
 	        _history2["default"].pushState(null, '/pedir');
@@ -25634,10 +25632,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reBase = __webpack_require__(228);
-
-	var _reBase2 = _interopRequireDefault(_reBase);
-
 	var _history = __webpack_require__(204);
 
 	var _history2 = _interopRequireDefault(_history);
@@ -25650,24 +25644,13 @@
 
 	var _componentsCategoriasJsx2 = _interopRequireDefault(_componentsCategoriasJsx);
 
-	var base = _reBase2["default"].createClass('https://rapifood.firebaseio.com');
-
 	var Pedir = _react2["default"].createClass({
 	  displayName: "Pedir",
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      userData: '',
-	      categorias: ''
+	      userData: ''
 	    };
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    base.bindToState('categorias', {
-	      context: this,
-	      state: 'categorias'
-
-	    });
 	  },
 
 	  componentWillMount: function componentWillMount() {
@@ -25717,7 +25700,7 @@
 	          null,
 	          "Categorias"
 	        ),
-	        _react2["default"].createElement(_componentsCategoriasJsx2["default"], { categorias: this.state.categorias })
+	        _react2["default"].createElement(_componentsCategoriasJsx2["default"], null)
 	      )
 	    );
 	  }
@@ -25746,17 +25729,80 @@
 
 	var _firebase2 = _interopRequireDefault(_firebase);
 
+	var _reBase = __webpack_require__(228);
+
+	var _reBase2 = _interopRequireDefault(_reBase);
+
+	var base = _reBase2["default"].createClass("https://rapifood.firebaseio.com/");
 	var Categorias = _react2["default"].createClass({
 	  displayName: "Categorias",
 
-	  render: function render() {
-	    var china = this.props.categorias.china;
-	    console.log(china);
+	  getInitialState: function getInitialState() {
+	    return {};
+	  },
 
+	  componentWillMount: function componentWillMount() {
+	    this.chinaRef = base.bindToState('categorias/china', {
+	      context: this,
+	      state: 'china',
+	      asArray: true
+	    });
+	    this.rapidaRef = base.bindToState('categorias/rapida', {
+	      context: this,
+	      state: 'rapida',
+	      asArray: true
+	    });
+	  },
+
+	  componentWillUnmount: function componentWillUnmount() {
+	    base.removeBinding(this.chinaRef);
+	    base.removeBinding(this.rapidaRef);
+	  },
+
+	  render: function render() {
 	    return _react2["default"].createElement(
 	      "section",
 	      { className: "container" },
-	      _react2["default"].createElement("ul", null)
+	      _react2["default"].createElement(
+	        "article",
+	        null,
+	        _react2["default"].createElement(
+	          "h3",
+	          null,
+	          "Comida China"
+	        ),
+	        _react2["default"].createElement(
+	          "ul",
+	          null,
+	          (this.state.china || []).map(function (value, i) {
+	            return _react2["default"].createElement(
+	              "li",
+	              { key: i },
+	              value
+	            );
+	          })
+	        )
+	      ),
+	      _react2["default"].createElement(
+	        "article",
+	        null,
+	        _react2["default"].createElement(
+	          "h3",
+	          null,
+	          "Comida Rapida"
+	        ),
+	        _react2["default"].createElement(
+	          "ul",
+	          null,
+	          (this.state.rapida || []).map(function (value, i) {
+	            return _react2["default"].createElement(
+	              "li",
+	              { key: i },
+	              value
+	            );
+	          })
+	        )
+	      )
 	    );
 	  }
 	});

@@ -14,7 +14,6 @@ let Home = React.createClass({
     if (error) {
       console.log("Login Fallido!", error);
       } else {
-        console.log("Autenticado exitosamente:", authData);
         let jsonLogin = JSON.stringify(authData);
         sessionStorage.setItem('user', jsonLogin);
         history.pushState(null , '/pedir');
@@ -28,7 +27,6 @@ let Home = React.createClass({
       if (error) {
         console.log("Login Fallido!", error);
       } else {
-        console.log("Autenticado exitosamente:", authData);
         let jsonLogin = JSON.stringify(authData);
         sessionStorage.setItem('user', jsonLogin);
         history.pushState(null, '/pedir');
