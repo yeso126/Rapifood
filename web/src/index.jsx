@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import history from './history';
 // Routes imports
-import Home from './routes/home/Home.js';
-import Pedir from './routes/pedir/Pedir.js';
+import Home from './routes/home/Home.jsx';
+import Pedir from './routes/pedir/Pedir.jsx';
 
 
 

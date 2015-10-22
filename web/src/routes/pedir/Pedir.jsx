@@ -1,8 +1,8 @@
 import './pedir.css';
 import React from 'react';
 import history from '../../history';
-import AppBar from '../components/AppBar.js';
-import Categorias from '../components/Categorias.js';
+import AppBar from '../components/AppBar.jsx';
+import Categorias from '../components/Categorias.jsx';
 
 let Pedir = React.createClass({
   getInitialState: function () {

@@ -1,7 +1,7 @@
 import './home.css';
 import React from 'react';
 import Firebase from 'firebase';
-import AppBar from '../components/AppBar.js';
+import AppBar from '../components/AppBar.jsx';
 import history from '../../history';
 
 const ref = new Firebase('https://rapifood.firebaseio.com/');
