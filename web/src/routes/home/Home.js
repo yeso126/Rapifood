@@ -1,18 +1,19 @@
-import React from "react";
-import Firebase from "firebase";
-import AppBar from "../components/AppBar.jsx";
-import LoginForm from "../components/LoginForm.jsx";
-import history from '../history';
+import './home.css';
+import React from 'react';
+import Firebase from 'firebase';
+import AppBar from '../components/AppBar.js';
+import history from '../../history';
 
-const ref = new Firebase("https://rapifood.firebaseio.com/");
+const ref = new Firebase('https://rapifood.firebaseio.com/');
 
 let Home = React.createClass({
 
   loginFbSubmit: function (e){
     e.preventDefault();
-    ref.authWithOAuthPopup("facebook", function(error, authData) {
+    ref.authWithOAuthPopup('facebook', function(error, authData) {
     if (error) {
-      console.log("Login Fallido!", error);
+      alert('Ha habido un problema, por favor intente de nuevo');
+      console.log('Login Fallido!', error);
       } else {
         let jsonLogin = JSON.stringify(authData);
         sessionStorage.setItem('user', jsonLogin);
@@ -23,9 +24,10 @@ let Home = React.createClass({
 
   loginTwSubmit: function(e){
     e.preventDefault();
-    ref.authWithOAuthPopup("twitter", function(error, authData) {
-      if (error) {
-        console.log("Login Fallido!", error);
+    ref.authWithOAuthPopup('twitter', function(error, authData) {
+    if (error) {
+      alert('Ha habido un problema, por favor intente de nuevo');
+      console.log('Login Fallido!', error);
       } else {
         let jsonLogin = JSON.stringify(authData);
         sessionStorage.setItem('user', jsonLogin);

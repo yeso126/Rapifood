@@ -1,30 +1,36 @@
-.login
+.login {
   color: #fff;
   background: #fa5757;
   border: 0px solid;
   border-radius: 4px;
   font-size: 1em;
   height: 3em;
+}
 
-.hero
-  background-image: url('../img/hero.png');
+
+.hero {
+  background-image: url('./hero.png');
   background-repeat: no-repeat;
   background-position: right;
   height: 27em;
   justify-content: center;
   display: flex;
   align-items: center;
-  & form
+}
+
+.hero form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 7em;
-.section1
-  display: flex;
-  justify-content: space-around;
-  max-width: 60em;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 5em;
-  flex-wrap: wrap;
-  
+}
+
+.section1 {
+    display: flex;
+    justify-content: space-around;
+    max-width: 60em;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5em;
+    flex-wrap: wrap;
+}

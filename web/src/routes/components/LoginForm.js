@@ -1,7 +1,8 @@
-import React from "react";
-import Firebase from "firebase";
+import './LoginForm.css';
+import React from 'react';
+import Firebase from 'firebase';
 
-const ref = new Firebase("https://rapifood.firebaseio.com/");
+const ref = new Firebase('https://rapifood.firebaseio.com/');
 
 let LoginForm = React.createClass({
 
@@ -18,11 +19,11 @@ loginSubmit: function (e){
   }, authHandler);
     function authHandler(error, authData) {
       if (error) {
-        console.log("Login Failed!", error);
-        alert("Correo o contraseña errado");
+        console.log('Login Failed!', error);
+        alert('Correo o contraseña errado');
       } else {
-        console.log("Authenticated successfully with payload:", authData);
-        alert("Ha iniciado sesion correctamente");
+        console.log('Authenticated successfully with payload:', authData);
+        alert('Ha iniciado sesion correctamente');
       }
   };
 },

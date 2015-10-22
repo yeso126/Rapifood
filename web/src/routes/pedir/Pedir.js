@@ -1,7 +1,8 @@
-import React from "react";
-import history from '../history';
-import AppBar from "../components/AppBar.jsx";
-import Categorias from "../components/Categorias.jsx";
+import './pedir.css';
+import React from 'react';
+import history from '../../history';
+import AppBar from '../components/AppBar.js';
+import Categorias from '../components/Categorias.js';
 
 let Pedir = React.createClass({
   getInitialState: function () {
@@ -11,7 +12,7 @@ let Pedir = React.createClass({
   },
 
   componentWillMount: function() {
-    let jsonData = sessionStorage.getItem("user");
+    let jsonData = sessionStorage.getItem('user');
     let userData = JSON.parse(jsonData);
     this.setState({
         userData: userData

@@ -1,9 +1,9 @@
-import React from "react";
-import Firebase from "firebase";
-import Rebase from "re-base";
+import React from 'react';
+import Firebase from 'firebase';
+import Rebase from 're-base';
 
+var base = Rebase.createClass('https://rapifood.firebaseio.com/');
 
-var base = Rebase.createClass("https://rapifood.firebaseio.com/");
 var Categorias = React.createClass({
   getInitialState: function () {
     return {};
