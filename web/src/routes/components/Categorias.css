@@ -1,0 +1,27 @@
+.container {
+  background: red;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 15em;
+  color:white;
+}
+.container-title {
+
+}
+.cat {
+  text-align: center;
+  width: 13em;
+}
+.cat ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cat li {
+  padding: 0;
+  margin: 0;
+}

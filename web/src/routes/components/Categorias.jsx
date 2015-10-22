@@ -1,3 +1,4 @@
+import './Categorias.css';
 import React from 'react';
 import Firebase from 'firebase';
 import Rebase from 're-base';
@@ -30,7 +31,8 @@ var Categorias = React.createClass({
   render: function() {
     return (
         <section className="container">
-          <article>
+          <h1 className="container-title">Categorias</h1>
+          <article className="cat">
             <h3>Comida China</h3>
             <ul>
               {(this.state.china || []).map(function(value, i) {
@@ -38,7 +40,7 @@ var Categorias = React.createClass({
               })}
             </ul>
           </article>
-          <article>
+          <article className="cat">
             <h3>Comida Rapida</h3>
             <ul>
               {(this.state.rapida || []).map(function(value, i) {

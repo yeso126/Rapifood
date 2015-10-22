@@ -4,7 +4,9 @@ import { Link } from 'react-router';
 
 let AppBar = React.createClass({
 
+
   render: function() {
+
     return (
       <header className="header">
         <img className="header-img" src="" alt="Rapifood-logo"/>
