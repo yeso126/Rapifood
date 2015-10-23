@@ -1,6 +1,8 @@
-import './home.css';
+import styles from  './home.css';
+
 import React from 'react';
 import Firebase from 'firebase';
+
 import AppBar from '../components/AppBar.jsx';
 import history from '../../history';
 
@@ -40,18 +42,18 @@ let Home = React.createClass({
     return (
       <div>
         <AppBar></AppBar>
-        <article className="hero">
+        <article className={styles.hero}>
           <form>
-            <button onClick={this.loginFbSubmit} className="login" type="submit">Facebook Login</button>
-            <button onClick={this.loginTwSubmit} className="login" type="submit">Twitter Login</button>
+            <button onClick={this.loginFbSubmit} className={styles.login} type="submit">Facebook Login</button>
+            <button onClick={this.loginTwSubmit} className={styles.login} type="submit">Twitter Login</button>
           </form>
         </article>
-        <section className="section1">
-          <article className="section1-bullet">
+        <section className={styles.section1}>
+          <article >
             <h3>Elije lo mejor</h3>
             <p>Muchos restaurantes y gran variedad a tu disposicion</p>
           </article>
-          <article className="section1-bullet">
+          <article >
             <h3>Haz tu pedido ya mismo!</h3>
             <p>No esperes en el telefono, pide lo que quieras de inmediato</p>
           </article>

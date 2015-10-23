@@ -8,14 +8,18 @@
   flex-wrap: wrap;
 }
 
-.header-title{
+.title{
   font-size: 2em;
   margin: 0px;
 }
 
-.header-subtitle{
+.subtitle{
   font-size: 1em;
   margin: 0px;
   padding-left: 0.5em;
   padding-top: 1.5em;
+}
+
+.img{
+
 }

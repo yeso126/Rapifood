@@ -14,7 +14,7 @@ ReactDOM.render((
   <Router history={history}>
     <Route path="/" component={Home} />
     <Route path="/pedir" component={Pedir}>
-
+      <Route path=""></Route>
     </Route>
   </Router>
   ),document.getElementById('appContainer')

@@ -1,4 +1,4 @@
-import './Categorias.css';
+import styles from './Categorias.css';
 import React from 'react';
 import Firebase from 'firebase';
 import Rebase from 're-base';
@@ -30,9 +30,9 @@ var Categorias = React.createClass({
 
   render: function() {
     return (
-        <section className="container">
-          <h1 className="container-title">Categorias</h1>
-          <article className="cat">
+        <section className={styles.container}>
+          <h1 className={styles.title}>Categorias</h1>
+          <article className={styles.cat}>
             <h3>Comida China</h3>
             <ul>
               {(this.state.china || []).map(function(value, i) {
@@ -40,7 +40,7 @@ var Categorias = React.createClass({
               })}
             </ul>
           </article>
-          <article className="cat">
+          <article className={styles.cat}>
             <h3>Comida Rapida</h3>
             <ul>
               {(this.state.rapida || []).map(function(value, i) {
