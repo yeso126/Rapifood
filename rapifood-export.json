@@ -12,7 +12,7 @@
     }
   },
   "restaurantes" : {
-    "american_dog" : {
+    "american dog" : {
       "descripcion" : "comida rapida al estilo americano",
       "horario_de_atencion" : "4pm - 6pm",
       "platos" : {

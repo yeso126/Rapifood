@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/index'
+    './src/index.jsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -26,9 +26,12 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')
-    }]
+    },
+	{ test: /\.css$/, loader: 'style-loader!css-loader?modules!autoprefixer-loader?browsers=last 2 version' },
+    { test: /\.png$/, loader: 'url-loader?limit=100000' },
+    { test: /\.jpg$/, loader: 'file-loader' }]
   }
 };
